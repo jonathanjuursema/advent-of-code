@@ -1,0 +1,46 @@
+---
+type: object
+required:
+  - byr
+  - iyr
+  - eyr
+  - hgt
+  - hcl
+  - ecl
+  - pid
+additionalProperties: false
+properties:
+  byr:
+    type: number
+    minimum: 1920
+    maximum: 2002
+  iyr:
+    type: number
+    minimum: 2010
+    maximum: 2020
+  eyr:
+    type: number
+    minimum: 2020
+    maximum: 2030
+  hgt:
+    oneOf:
+      - type: string
+        pattern: "^1([5-8][0-9]|9[0-3])cm$"
+      - type: string
+        pattern: "^(59|6[0-9]|7[0-6])in$"
+  hcl:
+    type: string
+    pattern: "^#[a-f0-9]{6}$"
+  ecl:
+    enum:
+      - amb
+      - blu
+      - brn
+      - gry
+      - grn
+      - hzl
+      - oth
+  pid:
+    type: string
+    pattern: "^[0-9]{9}$"
+  cid: {}
